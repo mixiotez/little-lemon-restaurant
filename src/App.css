@@ -3,6 +3,7 @@ body {
   padding: 0;
 }
 
-a.active {
-  font-weight: bold;
+.active > h6 {
+  color: #495e57;
+  text-decoration: underline;
 }

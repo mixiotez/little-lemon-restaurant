@@ -1,6 +1,6 @@
 import { ThemeProvider } from "@mui/material/styles";
-import Router from "./Router";
-import Navbar from "./components/Navbar";
+import Router from "@/Router";
+import Navbar from "@/components/Navbar/Navbar";
 import theme from "../theme";
 
 import "./App.css";

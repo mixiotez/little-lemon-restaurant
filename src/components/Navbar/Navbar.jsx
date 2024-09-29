@@ -2,6 +2,7 @@ import { useState, Fragment } from "react";
 
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
@@ -12,7 +13,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 
-import Logo from "../assets/logo.svg?react";
+import Logo from "@/assets/logo.svg?react";
 
 const drawerWidth = 240;
 const navItems = [
@@ -71,56 +72,64 @@ const Navbar = () => {
   );
 
   return (
-    <AppBar color="white" component="nav">
-      <Toolbar sx={{ justifyContent: "space-between" }}>
-        <IconButton
-          color="black"
-          aria-label="open navigation menu"
-          edge="start"
-          onClick={handleDrawerToggle}
-          sx={{ display: { sm: "none" } }}
-        >
-          <MenuIcon />
-        </IconButton>
-        <Link mr="40px" href="/">
-          <Logo />
-        </Link>
-        <List
+    <AppBar elevation={0} color="white" component="nav">
+      <Container sx={{ px: { xs: 3, md: "70px" } }} maxWidth="lg">
+        <Toolbar
+          disableGutters
           sx={{
-            display: {
-              xs: "none",
-              sm: "flex",
+            justifyContent: "space-between",
+            height: { xs: "72px", md: "80px" },
+          }}
+        >
+          <IconButton
+            color="black"
+            aria-label="open navigation menu"
+            edge="start"
+            onClick={handleDrawerToggle}
+            sx={{ display: { sm: "none" } }}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Link mr="40px" href="/">
+            <Logo />
+          </Link>
+          <List
+            sx={{
+              display: {
+                xs: "none",
+                sm: "flex",
+              },
+            }}
+          >
+            {navItems.map(({ label, url }) => (
+              <ListItem sx={{ px: { sm: 1, md: 2 } }} key={label}>
+                <Link underline="hover" href={url}>
+                  <Typography color="textPrimary" variant="subtitle1">
+                    {label}
+                  </Typography>
+                </Link>
+              </ListItem>
+            ))}
+          </List>
+          <Box sx={{ display: { sm: "none" } }} />
+        </Toolbar>
+        <Drawer
+          variant="temporary"
+          open={mobileOpen}
+          onClose={handleDrawerToggle}
+          ModalProps={{
+            keepMounted: true,
+          }}
+          sx={{
+            display: { xs: "block", sm: "none" },
+            "& .MuiDrawer-paper": {
+              width: drawerWidth,
             },
           }}
         >
-          {navItems.map(({ label, url }) => (
-            <ListItem sx={{ px: { sm: 1, md: 2 } }} key={label}>
-              <Link underline="hover" href={url}>
-                <Typography color="textPrimary" variant="subtitle1">
-                  {label}
-                </Typography>
-              </Link>
-            </ListItem>
-          ))}
-        </List>
-        <Box sx={{ display: { sm: "none" } }} />
-      </Toolbar>
-      <Drawer
-        variant="temporary"
-        open={mobileOpen}
-        onClose={handleDrawerToggle}
-        ModalProps={{
-          keepMounted: true,
-        }}
-        sx={{
-          display: { xs: "block", sm: "none" },
-          "& .MuiDrawer-paper": {
-            width: drawerWidth,
-          },
-        }}
-      >
-        {renderDrawer}
-      </Drawer>
+          {renderDrawer}
+        </Drawer>
+      </Container>
     </AppBar>
   );
 };

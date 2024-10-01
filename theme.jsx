@@ -39,6 +39,10 @@ const theme = createTheme({
       main: "#495E57",
       contrastText: "#FFFFFF",
     },
+    info: {
+      light: "#FBDABB",
+      main: "#EE9972",
+    },
   },
   components: {
     MuiLink: {

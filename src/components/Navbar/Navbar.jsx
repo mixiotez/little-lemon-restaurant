@@ -72,7 +72,7 @@ const Navbar = () => {
   );
 
   return (
-    <AppBar elevation={0} color="white" component="nav">
+    <AppBar color="default" elevation={0} component="nav">
       <Container sx={{ px: { xs: 3, md: "70px" } }} maxWidth="lg">
         <Toolbar
           disableGutters

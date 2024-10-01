@@ -1,0 +1,19 @@
+img {
+  border-radius: 16px;
+  display: block;
+  object-fit: cover;
+}
+
+.small-img {
+  aspect-ratio: 1/1;
+  margin: 0 auto 24px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.medium-img {
+  aspect-ratio: 8/9;
+  width: 300px;
+  margin-bottom: -120px;
+  transform: translate(2rem, -1rem);
+}

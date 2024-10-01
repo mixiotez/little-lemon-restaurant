@@ -8,7 +8,6 @@ const LinkBehavior = forwardRef((props, ref) => {
   return <NavLink ref={ref} to={href} {...other} />;
 });
 LinkBehavior.displayName = "LinkBehavior";
-LinkBehavior.propTypes = { href: "string" };
 
 const theme = createTheme({
   typography: {
@@ -18,8 +17,18 @@ const theme = createTheme({
     h2: {
       fontFamily: "Markazi Text",
     },
+    h3: {
+      fontFamily: "Markazi Text",
+    },
+    h4: {
+      fontFamily: "Markazi Text",
+    },
     fontFamily: "Karla",
     color: "#333333",
+    button: {
+      textTransform: "none",
+      fontWeight: "bold",
+    },
   },
   palette: {
     primary: {
@@ -40,6 +49,11 @@ const theme = createTheme({
     MuiButtonBase: {
       defaultProps: {
         LinkComponent: LinkBehavior,
+      },
+    },
+    MuiButton: {
+      defaultProps: {
+        disableElevation: true,
       },
     },
   },

@@ -1,9 +1,8 @@
-body {
-  margin: 0;
-  padding: 0;
-}
-
 .active > h6 {
   color: #495e57;
   text-decoration: underline;
+}
+
+.MuiButtonBase-root.MuiButton-root {
+  border-radius: 16px;
 }

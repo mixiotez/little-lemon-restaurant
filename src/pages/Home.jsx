@@ -8,6 +8,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Divider from "@mui/material/Divider";
 import Grid from "@mui/material/Grid2";
 import Link from "@mui/material/Link";
+import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
@@ -15,6 +16,7 @@ import MopedIcon from "@mui/icons-material/Moped";
 
 import Container from "@/components/Container/Container";
 
+import Logo from "@/assets/logo.svg?react";
 import crostini from "@/assets/crostini.jpg?w=300;600&format=webp";
 import greekSalad from "@/assets/greek-salad.jpg?w=300;600&format=webp";
 import bruschetta from "@/assets/bruschetta.jpg?w=300;600&format=webp";
@@ -111,12 +113,12 @@ const Home = () => {
         </Grid>
       </Container>
 
-      <Container>
+      <Container sx={{ mb: isMd ? 6 : 4 }}>
         <Grid
           container
           spacing={isMd ? 4 : 2}
           component="section"
-          sx={{ m: "96px auto 0", maxWidth: "md" }}
+          sx={{ mt: isMd ? "96px" : 4, mx: "auto", maxWidth: "md" }}
         >
           <Grid size={6}>
             <Typography component="h2" variant="h3">
@@ -138,13 +140,45 @@ const Home = () => {
             </Button>
           </Grid>
 
-          {cards.map((card) => (
+          {cards.map((card, index) => (
             <Fragment key={card.name}>
+              {!isMd && index !== 0 && <Divider sx={{ width: "100%" }} />}
               <FoodCard {...card} isVertical={isMd} />
-              {!isMd && <Divider sx={{ width: "100%" }} />}
             </Fragment>
           ))}
         </Grid>
+      </Container>
+
+      <Container
+        sx={{ py: isMd ? 6 : 2, backgroundColor: "secondary.main" }}
+        component="footer"
+      >
+        <Stack
+          spacing={2}
+          divider={<Divider orientation="vertical" flexItem />}
+          direction="row"
+          justifyContent="flex-end"
+        >
+          <Box alignSelf="center" width="fit-content" p={1} bgcolor="white">
+            <Logo />
+          </Box>
+          <Box color="white">
+            <Typography variant="h6">Contact</Typography>
+            <Typography variant="body2">
+              1395 Hickman Street, Chicago, IL
+            </Typography>
+            <Typography variant="body2">
+              <Link component="a" href="tel:3573326378">
+                (357)-332-6378
+              </Link>
+            </Typography>
+            <Typography variant="body2">
+              <Link component="a" href="mailto:eat@littlelemon.com">
+                eat@littlelemon.com
+              </Link>
+            </Typography>
+          </Box>
+        </Stack>
       </Container>
     </>
   );

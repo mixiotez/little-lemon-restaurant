@@ -175,8 +175,8 @@ const Home = () => {
           spacing={isMd ? 4 : 2}
           component="section"
           sx={{
-            py: 10,
-            mt: isMd ? "96px" : 4,
+            pt: 5,
+            pb: 10,
             mx: "auto",
             maxWidth: "md",
             alignItems: "stretch",

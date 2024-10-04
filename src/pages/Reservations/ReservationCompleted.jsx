@@ -11,10 +11,8 @@ const ReservationCompleted = () => {
     <Container
       component="section"
       sx={{
-        height: "calc(100vh - 70px)",
-        position: "absolute",
-        top: 0,
-        alignContent: "center",
+        flex: 1,
+        justifyContent: "center",
       }}
     >
       <Stack textAlign="center" mx="auto" maxWidth="500px" spacing={3}>

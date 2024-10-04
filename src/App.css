@@ -1,3 +1,7 @@
+body {
+  overscroll-behavior: none;
+}
+
 .active > h6 {
   color: #495e57;
   text-decoration: underline;

@@ -4,16 +4,21 @@
   object-fit: cover;
 }
 
-.small-img {
+.hero .small-img {
   aspect-ratio: 3/2;
   margin: 0 auto 24px;
   width: 100%;
   max-width: 300px;
 }
 
-.medium-img {
+.hero .medium-img {
   aspect-ratio: 8/9;
   width: 300px;
   margin-bottom: -120px;
   transform: translateY(-1rem);
+}
+
+.about img {
+  object-fit: scale-down;
+  width: 100%;
 }

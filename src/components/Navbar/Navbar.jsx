@@ -22,10 +22,6 @@ const navItems = [
     url: "/",
   },
   {
-    label: "About",
-    url: "/about",
-  },
-  {
     label: "Menu",
     url: "/menu",
   },
@@ -59,10 +55,8 @@ const Navbar = () => {
       <List disablePadding>
         {navItems.map(({ label, url }) => (
           <Fragment key={label}>
-            <ListItem>
-              <Link underline="hover" href={url}>
-                <Typography variant="subtitle1">{label}</Typography>
-              </Link>
+            <ListItem underline="hover" href={url} component={Link}>
+              <Typography variant="subtitle1">{label}</Typography>
             </ListItem>
             <Divider />
           </Fragment>
@@ -90,7 +84,7 @@ const Navbar = () => {
           >
             <MenuIcon />
           </IconButton>
-          <Link mr="40px" href="/">
+          <Link mr="40px" href="/#">
             <Logo />
           </Link>
           <List
@@ -102,12 +96,16 @@ const Navbar = () => {
             }}
           >
             {navItems.map(({ label, url }) => (
-              <ListItem sx={{ px: { sm: 1, md: 2 } }} key={label}>
-                <Link underline="hover" href={url}>
-                  <Typography color="textPrimary" variant="subtitle1">
-                    {label}
-                  </Typography>
-                </Link>
+              <ListItem
+                component={Link}
+                underline="hover"
+                href={url}
+                sx={{ px: { sm: 1, md: 2 } }}
+                key={label}
+              >
+                <Typography color="textPrimary" variant="subtitle1">
+                  {label}
+                </Typography>
               </ListItem>
             ))}
           </List>

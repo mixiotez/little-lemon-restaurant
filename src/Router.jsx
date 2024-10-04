@@ -6,7 +6,6 @@ import ReservationCompleted from "@/pages/ReservationCompleted";
 const Router = () => (
   <Routes>
     <Route path="/" element={<Home />} />
-    <Route path="about" />
     <Route path="menu" />
     <Route path="reservations" element={<Reservations />} />
     <Route path="reservations/success" element={<ReservationCompleted />} />

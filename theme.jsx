@@ -60,6 +60,22 @@ const theme = createTheme({
         disableElevation: true,
       },
     },
+    MuiStack: {
+      defaultProps: {
+        spacing: {
+          xs: 2,
+          md: "40px",
+        },
+      },
+    },
+    MuiGrid2: {
+      defaultProps: {
+        spacing: {
+          xs: 2,
+          md: "40px",
+        },
+      },
+    },
   },
 });
 

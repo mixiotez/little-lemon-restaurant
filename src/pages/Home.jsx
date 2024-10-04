@@ -20,10 +20,11 @@ import MopedIcon from "@mui/icons-material/Moped";
 import Container from "@/components/Container/Container";
 
 import Logo from "@/assets/logo.svg?react";
+import bruschetta from "@/assets/bruschetta.jpg?w=300;600&format=webp";
 import crostini from "@/assets/crostini.jpg?w=300;600&format=webp";
 import greekSalad from "@/assets/greek-salad.jpg?w=300;600&format=webp";
-import bruschetta from "@/assets/bruschetta.jpg?w=300;600&format=webp";
 import lemonDessert from "@/assets/lemon-dessert.jpg?w=200;600&format=webp";
+import marioAndAdrian from "@/assets/mario-and-adrian.jpg?w=400;800&format=webp";
 
 import "./Home.css";
 
@@ -203,8 +204,69 @@ const Home = () => {
         </Grid>
       </Container>
 
+      <Container>
+        <Grid
+          sx={{
+            mx: "auto",
+            pt: 10,
+            pb: { xs: 2, md: 5 },
+            maxWidth: "lg",
+            justifyContent: "center",
+          }}
+          container
+          component="article"
+          className="about"
+        >
+          <Grid size={isMd ? 4 : 12}>
+            <Typography
+              pb={4}
+              lineHeight={0.5}
+              component="h1"
+              variant="h2"
+              color="secondary.main"
+            >
+              About Us
+            </Typography>
+            {!isMd && (
+              <img
+                loading="lazy"
+                src={marioAndAdrian[0]}
+                alt="mario looking at adrian talking while they are in the kitchen"
+              />
+            )}
+            <Typography mt={{ xs: 2, md: 0 }} pb={3} variant="body1">
+              Based in Chicago, Illinois, Little Lemon is a family-owned
+              Mediterranean restaurant, focused on traditional recipes served
+              with a modern twist. The chefs draw inspiration from Italian,
+              Greek, and Turkish culture and have a menu of 12-15 items that
+              they rotate seasonally. The restaurant has a rustic and relaxed
+              atmosphere with moderate prices, making it a popular place for a
+              meal any time of the day.
+            </Typography>
+            <Typography pb={3} variant="body1">
+              Little Lemon is owned by two Italian brothers, Mario and Adrian,
+              who moved to the United States to pursue their shared dream of
+              owning a restaurant. To craft the menu, Mario relies on family
+              recipes and his experience as a chef in Italy. Adrian does all the
+              marketing for the restaurant and led the effort to expand the menu
+              beyond classic Italian to incorporate additional cuisines from the
+              Mediterranean region.
+            </Typography>
+          </Grid>
+          {isMd && (
+            <Grid size={8} sx={{ display: "flex", justifyContent: "flex-end" }}>
+              <img
+                loading="lazy"
+                src={marioAndAdrian[1]}
+                alt="mario looking at adrian talking while they are in the kitchen"
+              />
+            </Grid>
+          )}
+        </Grid>
+      </Container>
+
       <Container
-        sx={{ py: isMd ? 6 : 2, backgroundColor: "secondary.main" }}
+        sx={{ py: isMd ? 6 : 4, backgroundColor: "secondary.main" }}
         maxWidth={false}
         component="footer"
       >
@@ -274,6 +336,7 @@ const FoodCard = ({ isVertical, image, alt, name, price, description }) => {
             aspectRatio: "3/2",
           }}
           component="img"
+          loading="lazy"
           alt={alt}
           image={image[isVertical ? 1 : 0]}
         />

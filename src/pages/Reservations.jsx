@@ -308,20 +308,26 @@ const Reservations = () => {
           Back
         </Button>
         <Box sx={{ flex: "1 1 auto" }} />
-        <Button
-          disabled={!!isDisabled[activeStep]}
-          size="large"
-          variant="contained"
-          onClick={handleNext}
-        >
-          {activeStep === steps.length - 1 ? (
-            <Link color="inherit" href="success" underline="none">
-              Confirm
-            </Link>
-          ) : (
-            "Next"
-          )}
-        </Button>
+        {activeStep === steps.length - 1 ? (
+          <Button
+            disabled={!!isDisabled[activeStep]}
+            size="large"
+            variant="contained"
+            href="success"
+            component={Link}
+          >
+            Confirm
+          </Button>
+        ) : (
+          <Button
+            disabled={!!isDisabled[activeStep]}
+            size="large"
+            variant="contained"
+            onClick={handleNext}
+          >
+            Next
+          </Button>
+        )}
       </Box>
     </Container>
   );

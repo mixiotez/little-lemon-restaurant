@@ -95,10 +95,10 @@ const Home = () => {
               variant="contained"
               color="primary"
               size="large"
+              href="/reservations"
+              component={Link}
             >
-              <Link color="black" underline="none" href="/reserve">
-                Reserve a table
-              </Link>
+              Reserve a table
             </Button>
           </Grid>
           {isMd && (
@@ -133,10 +133,8 @@ const Home = () => {
               alignItems: "flex-end",
             }}
           >
-            <Button variant="contained">
-              <Link color="black" underline="none" href="/menu">
-                Online Menu
-              </Link>
+            <Button component={Link} href="/menu" variant="contained">
+              Online Menu
             </Button>
           </Grid>
 
@@ -151,17 +149,23 @@ const Home = () => {
 
       <Container
         sx={{ py: isMd ? 6 : 2, backgroundColor: "secondary.main" }}
+        maxWidth={false}
         component="footer"
       >
         <Stack
           spacing={2}
-          divider={<Divider orientation="vertical" flexItem />}
+          divider={
+            <Divider
+              sx={{ borderColor: "info.light" }}
+              orientation="vertical"
+              flexItem
+            />
+          }
           direction="row"
           justifyContent="flex-end"
+          maxWidth="md"
+          mx="auto"
         >
-          <Box alignSelf="center" width="fit-content" p={1} bgcolor="white">
-            <Logo />
-          </Box>
           <Box color="white">
             <Typography variant="h6">Contact</Typography>
             <Typography variant="body2">
@@ -177,6 +181,9 @@ const Home = () => {
                 eat@littlelemon.com
               </Link>
             </Typography>
+          </Box>
+          <Box alignSelf="center" width="fit-content" p={1} bgcolor="white">
+            <Logo />
           </Box>
         </Stack>
       </Container>

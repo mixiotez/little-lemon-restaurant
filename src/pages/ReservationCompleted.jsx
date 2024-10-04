@@ -35,10 +35,8 @@ const ReservationCompleted = () => {
             Thank you for choosing Little Lemon!
           </Typography>
         </Box>
-        <Button size="large" variant="contained">
-          <Link underline="none" color="inherit" href="/">
-            Close
-          </Link>
+        <Button component={Link} size="large" variant="contained" href="/">
+          Close
         </Button>
       </Stack>
     </Container>

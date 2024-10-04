@@ -1,23 +1,17 @@
 import { Fragment } from "react";
 
-import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardHeader from "@mui/material/CardHeader";
-import CardMedia from "@mui/material/CardMedia";
 import Divider from "@mui/material/Divider";
 import Grid from "@mui/material/Grid2";
 import Link from "@mui/material/Link";
-import Rating from "@mui/material/Rating";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
-import MopedIcon from "@mui/icons-material/Moped";
-
-import Container from "@/components/Container/Container";
+import Container from "@/components/Container";
+import FoodCard from "./FoodCard";
+import ReviewCard from "./ReviewCard";
 
 import Logo from "@/assets/logo.svg?react";
 import bruschetta from "@/assets/bruschetta.jpg?w=300;600&format=webp";
@@ -306,93 +300,6 @@ const Home = () => {
         </Stack>
       </Container>
     </>
-  );
-};
-
-const FoodCard = ({ isVertical, image, alt, name, price, description }) => {
-  const ellipsisStyle = {
-    display: "-webkit-box",
-    WebkitLineClamp: 3,
-    WebkitBoxOrient: "vertical",
-    overflow: "hidden",
-  };
-
-  return (
-    <Grid size={isVertical ? 4 : 12}>
-      <Card
-        elevation={0}
-        sx={{
-          display: "flex",
-          backgroundColor: isVertical ? "#495E571a" : "white",
-          flexDirection: isVertical ? "column" : "row",
-          borderRadius: "16px",
-        }}
-      >
-        <CardMedia
-          sx={{
-            order: isVertical ? -1 : 1,
-            maxWidth: isVertical ? "unset" : "100px",
-            objectFit: isVertical ? "cover" : "scale-down",
-            aspectRatio: "3/2",
-          }}
-          component="img"
-          loading="lazy"
-          alt={alt}
-          image={image[isVertical ? 1 : 0]}
-        />
-        <CardContent sx={{ p: isVertical ? "" : "0 16px 0 0 !important" }}>
-          <Box display="flex" flexDirection="column">
-            <Typography sx={{ mb: isVertical ? -1 : 1 }} variant="h5">
-              {name}
-            </Typography>
-            <Typography
-              sx={{ order: isVertical ? 0 : 1 }}
-              textAlign={isVertical ? "right" : "left"}
-              pb={isVertical ? 2 : 1}
-              variant="subtitle1"
-              color="info"
-            >
-              ${price}
-            </Typography>
-            <Typography
-              mb={isVertical ? 4 : 1}
-              variant="body2"
-              sx={{
-                color: "text.secondary",
-                ...ellipsisStyle,
-              }}
-            >
-              {description}
-            </Typography>
-          </Box>
-
-          <Link color="black" underline="none" href="/order">
-            <Typography variant="button">
-              Order a delivery
-              <MopedIcon sx={{ ml: 1, verticalAlign: "bottom" }} />
-            </Typography>
-          </Link>
-        </CardContent>
-      </Card>
-    </Grid>
-  );
-};
-
-const ReviewCard = ({ avatarColor, name, rating, review }) => {
-  return (
-    <Card elevation={0} component="article" sx={{ height: "100%" }}>
-      <CardHeader
-        avatar={<Avatar sx={{ bgcolor: avatarColor }}>{name[0]}</Avatar>}
-        title={name}
-        subheader={<Rating value={rating} readOnly />}
-        sx={{ px: { xs: 3, md: 2 }, pt: { xs: 3, md: 2 }, pb: 0 }}
-      />
-      <CardContent sx={{ px: { xs: 3, md: 2 } }}>
-        <Typography textAlign="justify" variant="body2">
-          {review}
-        </Typography>
-      </CardContent>
-    </Card>
   );
 };
 

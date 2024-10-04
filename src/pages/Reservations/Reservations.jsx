@@ -21,7 +21,7 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { TimePicker } from "@mui/x-date-pickers/TimePicker";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 
-import Container from "@/components/Container/Container";
+import Container from "@/components/Container";
 
 import dayjs from "dayjs";
 

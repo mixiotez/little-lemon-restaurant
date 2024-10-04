@@ -1,13 +1,16 @@
 import { Fragment } from "react";
 
+import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
+import CardHeader from "@mui/material/CardHeader";
 import CardMedia from "@mui/material/CardMedia";
 import Divider from "@mui/material/Divider";
 import Grid from "@mui/material/Grid2";
 import Link from "@mui/material/Link";
+import Rating from "@mui/material/Rating";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import useMediaQuery from "@mui/material/useMediaQuery";
@@ -48,6 +51,30 @@ const cards = [
     price: "4.99",
     description:
       "This comes straight from grandma's recipe book. Every last ingredient has been sourced and is as authentic as can be imagined.",
+  },
+];
+
+const reviews = [
+  {
+    avatarColor: "info.main",
+    name: "Sarah T.",
+    rating: 5,
+    review:
+      "Little Lemon offers delicious Mediterranean flavors with a cozy, welcoming vibe. The greek salad and the tzatziki were fantastic!",
+  },
+  {
+    avatarColor: "primary.main",
+    name: "James P.",
+    rating: 5,
+    review:
+      "Great seasonal menu and flavorful dishes, though the wait time can be long during peak hours.",
+  },
+  {
+    avatarColor: "secondary.main",
+    name: "Emily G.",
+    rating: 5,
+    review:
+      "Consistently amazing food with a rustic atmosphere — perfect for a relaxing meal. Love the rotating specials of the week!",
   },
 ];
 
@@ -130,7 +157,7 @@ const Home = () => {
             sx={{
               display: "flex",
               justifyContent: "flex-end",
-              alignItems: "flex-end",
+              alignItems: "center",
             }}
           >
             <Button component={Link} href="/menu" variant="contained">
@@ -143,6 +170,35 @@ const Home = () => {
               {!isMd && index !== 0 && <Divider sx={{ width: "100%" }} />}
               <FoodCard {...card} isVertical={isMd} />
             </Fragment>
+          ))}
+        </Grid>
+      </Container>
+
+      <Container sx={{ backgroundColor: "info.light" }}>
+        <Grid
+          container
+          spacing={isMd ? 4 : 2}
+          component="section"
+          sx={{
+            py: 10,
+            mt: isMd ? "96px" : 4,
+            mx: "auto",
+            maxWidth: "md",
+            alignItems: "stretch",
+          }}
+        >
+          <Typography
+            textAlign="center"
+            width="100%"
+            component="h2"
+            variant="h3"
+          >
+            Testimonials
+          </Typography>
+          {reviews.map((review) => (
+            <Grid size={isMd ? 4 : 12} key={review.name}>
+              <ReviewCard {...review} />
+            </Grid>
           ))}
         </Grid>
       </Container>
@@ -256,6 +312,24 @@ const FoodCard = ({ isVertical, image, alt, name, price, description }) => {
         </CardContent>
       </Card>
     </Grid>
+  );
+};
+
+const ReviewCard = ({ avatarColor, name, rating, review }) => {
+  return (
+    <Card elevation={0} component="article" sx={{ height: "100%" }}>
+      <CardHeader
+        avatar={<Avatar sx={{ bgcolor: avatarColor }}>{name[0]}</Avatar>}
+        title={name}
+        subheader={<Rating value={rating} readOnly />}
+        sx={{ px: { xs: 3, md: 2 }, pt: { xs: 3, md: 2 }, pb: 0 }}
+      />
+      <CardContent sx={{ px: { xs: 3, md: 2 } }}>
+        <Typography textAlign="justify" variant="body2">
+          {review}
+        </Typography>
+      </CardContent>
+    </Card>
   );
 };
 

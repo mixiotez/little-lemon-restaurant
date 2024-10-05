@@ -7,6 +7,7 @@ import reactRefresh from "eslint-plugin-react-refresh";
 export default [
   { ignores: ["dist"] },
   {
+    env: { "vitest-globals/env": true },
     files: ["**/*.{js,jsx}"],
     languageOptions: {
       ecmaVersion: 2020,
@@ -22,6 +23,7 @@ export default [
       react,
       "react-hooks": reactHooks,
       "react-refresh": reactRefresh,
+      "vitest-globals": "vitest-globals",
     },
     rules: {
       ...js.configs.recommended.rules,
